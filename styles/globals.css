@@ -1,3 +1,7 @@
+:root {
+    --color1: 09cdda;
+}
+
 html,
 body {
   padding: 0;

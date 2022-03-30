@@ -2,20 +2,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react';
 import styles from '../styles/Home.module.css'
+import Nav from '../components/Nav'
 
-export default function Home() {
-  const [data, setData] = React.useState(null);
+export async function getServerSideProps() {
+  const response = await fetch(process.env.DB);
+  const data = await response.json();
+  return {props: {data} };
+}
 
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
-
+export default function Home( {data} ) {
   return (
     <div>
-      <h1>Blåbärsmos</h1>
-      <p>{!data ? "Loading..." : data}</p>
+      <Nav />
+      <p>{!data?.message ? "Loading..." : data.message}</p>
     </div>
   )
 }

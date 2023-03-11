@@ -7,18 +7,16 @@ function nav() {
 	return (
 		<nav>
 			<NavHeader text="Krysset.IT" />
+
 			<NavItem name="Notes" location="/notes">
 				<NavSubItem name="Math" location={"/notes/math"} />
 				<NavSubItem name="Test" location={"/notes/test"} />
 			</NavItem>
-			<NavItem name="Big Test" location={"/bigtest"}>
-				<NavSubItem name="I EXIST" location={"/ornot"} />
+
+			<NavItem name="Github" location={"/git"}>
+				<NavSubItem name="Krysset.IT" location={"/git/kryssetit"} />
+				<NavSubItem name="Notes" location={"/git/notes"} />
 			</NavItem>
-			<NavItem
-				name=""
-				location=""
-				style={{ flexGrow: 3, visibility: "hidden" }}
-			></NavItem>
 		</nav>
 	);
 }
